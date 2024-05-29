@@ -10,11 +10,11 @@ services:
             - './nginx:/etc/nginx/templates'
             - './src:/var/www/src'
         ports:
-            - 80:80
+            - 81:80
         environment:
             - TZ=UTC
             - PHP_CONTAINER_NAME=pd2-laravel
-            - SERVER_PORT=80
+            - SERVER_PORT=81
             - SERVER_NAME=localhost
             - DOCUMENT_ROOT=/var/www/src/public
 
