@@ -7,7 +7,10 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class RapperController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+
+
+class RapperController extends Controller implements HasMiddleware
 {
     public function list(): View
     {
@@ -72,6 +75,13 @@ public function delete(Rapper $rapper): RedirectResponse
  // šeit derētu pārbaude, kas neļauj dzēst autoru, ja tas piesaistīts eksistējošām grāmatām
  $rapper->delete();
  return redirect('/rappers');
+}
+
+public static function middleware(): array
+{
+return [
+'auth',
+];
 }
 
 

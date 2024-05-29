@@ -11,31 +11,33 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     // display login form
-public function login(): View
-{
-    echo 'A9' : <input value="'
-. \Illuminate\Support\Facades\Hash::make('parole')
-. '">';
-exit();
- return view(
- 'auth.login',
- [
- 'title' => 'Pieslēgties'
- ]
- );
-}
+    public function login(): View
+    {
+        return view('auth.login', [
+            'title' => 'Pieslēgties'
+        ]);
+    }
+
 // authenticate user
 public function authenticate(Request $request): RedirectResponse
 {
  $credentials = $request->only('name', 'password');
  if (Auth::attempt($credentials)) {
  $request->session()->regenerate();
- // Šo vēlāk nomainīsim uz /books
+ // Šo vēlāk nomainīsim uz /albums
  return redirect('/rappers');
  }
  return back()->withErrors([
  'name' => 'Pieslēgšanās neveiksmīga',
  ]);
+}
+
+public function logout(Request $request): RedirectResponse
+{
+ Auth::logout();
+ $request->session()->invalidate();
+ $request->session()->regenerateToken();
+ return redirect('/');
 }
 
 }

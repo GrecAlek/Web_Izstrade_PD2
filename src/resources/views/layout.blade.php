@@ -24,6 +24,21 @@ data-bs-target="#navbarNav">
 <li class="nav-item">
 <a class="nav-link" href="/">Sākumlapa</a>
 </li>
+
+@if(Auth::check())
+ <li class="nav-item">
+ <a class="nav-link" href="/rappers">Reperi</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="/logout">Beigt darbu</a>
+ </li>
+@else
+ <li class="nav-item">
+ <a class="nav-link" href="/login">Pieslēgties</a>
+ </li>
+@endif
+
+
 <li class="nav-item">
 <a class="nav-link" href="/rappers">Reperi</a>
 </li>
