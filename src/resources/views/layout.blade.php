@@ -21,14 +21,12 @@ data-bs-target="#navbarNav">
 </button>
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav">
+    
 <li class="nav-item">
 <a class="nav-link" href="/">Sākumlapa</a>
 </li>
 
 @if(Auth::check())
- <li class="nav-item">
- <a class="nav-link" href="/rappers">Reperi</a>
- </li>
  <li class="nav-item">
  <a class="nav-link" href="/logout">Beigt darbu</a>
  </li>
@@ -42,6 +40,12 @@ data-bs-target="#navbarNav">
 <li class="nav-item">
 <a class="nav-link" href="/rappers">Reperi</a>
 </li>
+
+<li class="nav-item">
+ <a class="nav-link" href="/albums">Albumi</a>
+</li>
+
+
 </ul>
 </div>
 </div>

@@ -12,6 +12,12 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 
 class RapperController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+{
+return [
+'auth',
+];
+}
     public function list(): View
     {
     $items = Rapper::orderBy('name', 'asc')->get();
@@ -77,12 +83,7 @@ public function delete(Rapper $rapper): RedirectResponse
  return redirect('/rappers');
 }
 
-public static function middleware(): array
-{
-return [
-'auth',
-];
-}
+
 
 
 }
