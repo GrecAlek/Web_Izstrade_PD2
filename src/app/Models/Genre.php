@@ -13,8 +13,8 @@ class Genre extends Model
 
 
     public function albums(): HasMany
-{
- return $this->hasMany(Genre::class);
-}
-
+    {
+        return $this->hasMany(Album::class);
+    }
+    
 }
