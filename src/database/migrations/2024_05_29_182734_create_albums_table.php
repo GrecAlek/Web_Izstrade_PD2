@@ -11,6 +11,7 @@ return new class extends Migration
  Schema::create('albums', function (Blueprint $table) {
 $table->id();
 $table->foreignId('rapper_id');
+$table->foreignId('genre_id');
 $table->string('name', 256);
 $table->text('description')->nullable();
 $table->decimal('price', 8, 2)->nullable();
@@ -19,12 +20,11 @@ $table->string('image', 256)->nullable();
 $table->boolean('display');
 $table->timestamps();
 $table->foreign('rapper_id')->references('id')->on('rappers');
+$table->foreign('genre_id')->references('id')->on('genres');
  });
 }
 
-    /**
-     * Reverse the migrations.
-     */
+   
     public function down(): void
     {
         Schema::dropIfExists('albums');

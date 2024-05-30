@@ -8,6 +8,7 @@
  <th>ID</th>
  <th>Nosaukums</th>
  <th>Reperis</th>
+ <th>Žanrs</th>
  <th>Gads</th>
  <th>Cena</th>
  <th>Attēlot</th>
@@ -20,6 +21,7 @@
  <td>{{ $album->id }}</td>
  <td>{{ $album->name }}</td>
  <td>{{ $album->rapper->name }}</td>
+ <td>{{ $album->genre->name }}</td>
  <td>{{ $album->year }}</td>
  <td>&euro; {{ number_format($album->price, 2, '.') }}</td>
  <td>{!! $album->display ? '&#x2714;' : '&#x274C;' !!}</td>

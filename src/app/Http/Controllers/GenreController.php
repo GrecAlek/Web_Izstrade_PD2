@@ -2,18 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Genre;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 use Illuminate\Routing\Controllers\HasMiddleware;
 
-class GenreController extends Controller
-{
 
-    public static function middleware(): array
+class GenreController extends Controller implements HasMiddleware
+{
+    
+    public function list(): View
+    {
+    $items = Genre::orderBy('name', 'asc')->get();
+    return view(
+    'genre.list',
+    [
+    'title' => 'Žanri',
+    'items' => $items,
+    ]
+    );
+    }
+
+
+public static function middleware(): array
 {
 return [
 'auth',
@@ -21,31 +34,21 @@ return [
 }
 
 
-    public function list(): View
-{
-$items = Genre::orderBy('name', 'asc')->get();
-return view(
-'genre.list',
-[
-'title' => 'Žanri',
-'items' => $items,
-]
-);
-}
 
-// display new Genre form
-public function create(): View
+    public function create(): View
 {
+    
+    
 return view(
 'genre.form',
 [
-'title' => 'Pievienot žanru'
+'title' => 'Pievienot žanru',
 'genre' => new Genre()
+
 ]
 );
 }
 
-// create new Genre
 public function put(Request $request): RedirectResponse
 {
 $validatedData = $request->validate([
@@ -58,7 +61,6 @@ return redirect('/genres');
 }
 
 
-// display Genre editing form
 public function update(Genre $genre): View
 {
  return view(
@@ -68,9 +70,6 @@ public function update(Genre $genre): View
  'genre' => $genre
  ]
  );
-
-
-
 }
 
 public function patch(Genre $genre, Request $request): RedirectResponse
@@ -85,10 +84,12 @@ public function patch(Genre $genre, Request $request): RedirectResponse
 
 public function delete(Genre $genre): RedirectResponse
 {
-
+ // šeit derētu pārbaude, kas neļauj dzēst žanrus, ja tas piesaistīts eksistējošām grāmatām
  $genre->delete();
  return redirect('/genres');
 }
+
+
 
 
 }

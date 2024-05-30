@@ -14,6 +14,7 @@ class Album extends Model
     protected $fillable = [
         'name',
         'rapper_id',
+        'genre_id',
         'description',
         'price',
         'year',
@@ -23,6 +24,11 @@ class Album extends Model
 public function rapper(): BelongsTo
 {
  return $this->belongsTo(Rapper::class);
+}
+
+public function genre(): BelongsTo
+{
+ return $this->belongsTo(Genre::class);
 }
 
 }

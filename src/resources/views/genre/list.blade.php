@@ -6,7 +6,7 @@
  <thead class="thead-light">
  <tr>
  <th>ID</td>
-<th>Nosaukums</td>
+<th>Vārds</td>
 <th>&nbsp;</td>
  </tr>
  </thead>
