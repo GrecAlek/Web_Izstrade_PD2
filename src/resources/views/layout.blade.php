@@ -45,6 +45,10 @@ data-bs-target="#navbarNav">
  <a class="nav-link" href="/albums">Albumi</a>
 </li>
 
+<li class="nav-item">
+ <a class="nav-link" href="/genres">Žanri</a>
+</li>
+
 
 </ul>
 </div>
