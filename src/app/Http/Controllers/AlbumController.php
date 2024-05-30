@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AlbumRequest;
 use App\Models\Rapper;
+use App\Models\Genre;
 use App\Models\Album;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -65,20 +66,24 @@ class AlbumController extends Controller implements HasMiddleware
     public function create(): View
     {
         $rappers = Rapper::orderBy('name', 'asc')->get();
+        $genres = Genre::all(); 
         return view('album.form', [
             'title' => 'Pievienot albumu',
             'album' => new Album(),
             'rappers' => $rappers,
+            'genres' => $genres,
         ]);
     }
 
     public function update(Album $album): View
     {
         $rappers = Rapper::orderBy('name', 'asc')->get();
+        $genres = Genre::all(); 
         return view('album.form', [
-            'title' => 'Rediģēt grāmatu',
+            'title' => 'Rediģēt albumu',
             'album' => $album,
             'rappers' => $rappers,
+            'genres' => $genres,
         ]);
     }
 

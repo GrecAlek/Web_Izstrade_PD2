@@ -13,18 +13,20 @@ class AuthController extends Controller
     // display login form
     public function login(): View
     {
+
+
         return view('auth.login', [
             'title' => 'Pieslēgties'
         ]);
     }
 
-// authenticate user
+
 public function authenticate(Request $request): RedirectResponse
 {
  $credentials = $request->only('name', 'password');
  if (Auth::attempt($credentials)) {
  $request->session()->regenerate();
- // Šo vēlāk nomainīsim uz /albums
+
  return redirect('/rappers');
  }
  return back()->withErrors([
