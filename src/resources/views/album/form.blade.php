@@ -46,6 +46,20 @@
         </div>
 
         <div class="mb-3">
+ <label for="album-description" class="form-label">Apraksts</label>
+ <textarea
+ id="album-description"
+ name="description"
+ class="form-control @error('description') is-invalid @enderror"
+ >{{ old('description', $album->description) }}</textarea>
+ @error('description')
+ <p class="invalid-feedback">{{ $errors->first('description') }}</p>
+ @enderror
+ </div>
+
+
+
+        <div class="mb-3">
             <label for="album-year" class="form-label">Izdošanas gads</label>
             <input type="number" max="{{ date('Y') + 1 }}" step="1" id="album-year" name="year" value="{{ old('year', $album->year) }}" class="form-control @error('year') is-invalid @enderror">
             @error('year')
