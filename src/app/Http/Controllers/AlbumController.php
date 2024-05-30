@@ -95,4 +95,7 @@ class AlbumController extends Controller implements HasMiddleware
         $album->delete();
         return redirect('/albums');
     }
+
+
+
 }

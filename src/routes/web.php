@@ -46,3 +46,5 @@ Route::get('/data/get-album/{album}', [DataController::class, 'getAlbum']);
 Route::get('/data/get-related-albums/{album}', [DataController::class,
 'getRelatedAlbums']);
 
+Route::get('/api/albums', [AlbumController::class, 'apiList']);
+
