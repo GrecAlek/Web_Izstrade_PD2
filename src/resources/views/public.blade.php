@@ -29,5 +29,11 @@ py-3 my-4 border-top">
 </div>
 </footer>
 </div>
+
+
+@viteReactRefresh
+@vite('resources/js/app.jsx')
+
 </body>
+
 </html>
