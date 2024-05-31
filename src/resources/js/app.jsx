@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -10,7 +10,9 @@ export default function App() {
 
     return (
         <>
-            {selectedAlbum ? <AlbumPage selectedAlbum={selectedAlbum} /> : <Homepage onSelect={handleSelectedAlbums} />}
+            {selectedAlbum ? 
+            <AlbumPage selectedAlbum={selectedAlbum} />
+            : <Homepage onSelect={handleSelectedAlbums} />}
         </>
     );
 }
@@ -56,7 +58,9 @@ function TopAlbum({ album, onSelect }) {
         <div className="row mb-5 pt-5 pb-5 bg-light">
             <div className={`col-md-6 mt-2 px-5 ${album.idx % 2 === 0 ? 'text-start order-2' : 'text-end order-1'}`}>
                 <p className="display-4">{album.name}</p>
-                <p className="lead">{album.description.split(' ').slice(0, 32).join(' ') + '...'}</p>
+                <p className="lead">
+    {album.description ? album.description.split(' ').slice(0, 32).join(' ') + '...' : ''}
+</p>
                 <button className="btn btn-success" onClick={() => onSelect(album.id)}>Apskatīt</button>
             </div>
             <div className={`col-md-6 text-center ${album.idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
@@ -73,3 +77,4 @@ function AlbumPage({ selectedAlbum }) {
         </>
     );
 }
+
