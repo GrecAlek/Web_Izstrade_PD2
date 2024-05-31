@@ -11,7 +11,7 @@ function PageDesign() {
                             className="card-img-top"
                             src="https://upload.wikimedia.org/wikipedia/en/9/97/Yeat_-_2093.png"
                             alt="Yeat"
-                            style={{ height: "350px" }}
+                            style={{ height: "300px" }}
                         />
                         <div className="card-body">
                             <h5 className="card-title">2093</h5>
@@ -62,7 +62,7 @@ function PageDesign() {
                             className="card-img-top"
                             src="https://upload.wikimedia.org/wikipedia/en/8/8f/Shoreline_Mafia_-_Mafia_Bidness.png"
                             alt="Shoreline Mafia"
-                            style={{ height: "350px" }}
+                            style={{ height: "300px" }}
                         />
                         <div className="card-body">
                             <h5 className="card-title">Mafia Bidness</h5>
@@ -101,7 +101,7 @@ function PageDesign() {
                             className="card-img-top"
                             src="https://upload.wikimedia.org/wikipedia/en/7/7b/AmericanDream.jpeg"
                             alt="21 savage"
-                            style={{ height: "350px" }}
+                            style={{ height: "300px" }}
                         />
                         <div className="card-body">
                             <h5 className="card-title">American Dream</h5>

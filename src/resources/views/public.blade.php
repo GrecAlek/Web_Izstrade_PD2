@@ -48,7 +48,7 @@ py-3 my-4 border-top">
 
 
 @viteReactRefresh
-@vite('resources/js/app.jsx')
+@vite('resources/js/index.jsx')
 
 </body>
 
